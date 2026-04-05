@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
+        <div id="header">
+            <nav id="nav">
+                <!-- Button to open and close the menu -->
+                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                    Menu
+                    <span id="hamburger"></span>
+                </button>
+                 <!-- List of site links -->   
+                <ul id="menu" role="menu">
+                    <li><a href="{{ url_for('cliente') }}">Cliente</a></li>
+                    <li><a href="{{ url_for('corporativo') }}">Corporativo</a></li>
+                </ul>
+        </div>
+      <div class="container5">
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='imagens/logoPI.png') }}" alt="logo da marca">
+        </div>
+    </div>
+    </header>
+  
+      <footer>
+        <div class="imagens">
+          <div class="grupo1">
+            <h3>Selo de Segurança</h3>
+            <hr style="background-image: linear-gradient(to right, rgb(50, 188, 175), rgb(203, 203, 207)); height: 2px; border: none;">
+            <img src="{{ url_for('static', filename='imagens/Frame 128.png') }}" alt="Selo de Segurança">
+          </div>
+        </div>
+      </footer>
+ 
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

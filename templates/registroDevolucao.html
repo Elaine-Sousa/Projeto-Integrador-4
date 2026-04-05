@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro de Devolução</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header id="header">
+
+    <!-- LOGO -->
+    <img src="{{ url_for('static', filename='imagens/logoPI.png') }}" alt="Logo" class="logo">
+
+    <!-- MENU SUPERIOR -->
+    <nav id="nav">
+        <button aria-label="Abrir Menu" id="btn-mobile">
+            Menu <span id="hamburger"></span>
+        </button>
+
+        <ul id="menu" role="menu">
+
+            <a href="{{ url_for('home') }}" class="logout-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                     fill="rgb(153, 140, 21)" viewBox="0 0 24 24">
+                    <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59z"/>
+                    <path d="M20 3H12c-1.1 0-2 .9-2 2v4h2V5h8v14h-8v-4h-2v4c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                </svg> <span>Sair</span>
+               
+            </a>
+
+        </ul>
+    </nav>
+
+</header>
+
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="container7">
+
+    <h1>Devolução de Produto</h1>
+
+    <div class="return-section">
+
+        <!-- FORMULÁRIO -->
+        <form id="formDevolucao" enctype="multipart/form-data">
+            <div id="msgRetorno" style="display:none;"></div>
+
+            <label for="orderNumber">Número do Pedido:</label>
+            <input type="text" id="orderNumber" name="orderNumber" required>
+
+            <label for="name">Nome do Cliente:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="reason">Motivo da Devolução:</label>
+            <textarea id="reason" name="reason" required></textarea>
+
+            <label for="images">Imagens do Produto:</label>
+            <input type="file" id="images" name="images" multiple required>
+
+            <button type="submit">Registrar Devolução</button>
+        </form>
+
+        <!-- MINHAS DEVOLUÇÕES -->
+        <div class="my-returns-section">
+
+            <button id="myReturnsButton" class="btn-minhas-dev">
+                Minhas Devoluções
+            </button>
+            <hr>
+            <div id="myReturns"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- MODAL DE IMAGENS -->
+<div id="imageModalReturn" class="modal-return" style="display:none;">
+
+    <div class="modal-return-content">
+
+        <button class="modal-return-close" onclick="fecharModalReturn()">✖</button>
+
+        <button class="modal-return-nav modal-return-prev" onclick="imagemAnteriorReturn()">&#10094;</button>
+
+        <div id="modalReturnImages"></div>
+
+        <button class="modal-return-nav modal-return-next" onclick="proximaImagemReturn()">&#10095;</button>
+
+    </div>
+
+</div>
+
+
+<!-- RODAPÉ -->
+<footer>
+    <div class="imagens">
+        <div class="grupo1">
+            <h3>Selo de Segurança</h3>
+            <hr class="footer-line">
+            <img src="{{ url_for('static', filename='imagens/Frame 128.png') }}" alt="Selo de Segurança">
+        </div>
+    </div>
+</footer>
+
+
+<!-- SCRIPTS -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/registroDevolucao.js') }}"></script>
+
+
+</body>
+</html>

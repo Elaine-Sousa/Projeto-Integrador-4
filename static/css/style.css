@@ -1,0 +1,1030 @@
+body,
+body{
+  background-color:#023b50;
+}
+
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+/*configurações do logo da página*/
+.logo{
+  width: 150px; /* ou qualquer tamanho que quiser, tipo 100px */
+  height: auto;
+}
+
+
+/***************** Website menu *********************/
+#header {
+  box-sizing: border-box;
+  height: 70px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color:#023b50;
+}
+
+a {
+  color: rgb(153, 140, 21);
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Poppins';
+}
+
+a:hover {
+  background: rgb(218, 214, 214); /*deixa o fundo de outra cor ao passar o mouse*/
+  border-radius: 0px; /* arredonda o botão ao passar o mouse */
+}
+#menu {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+#menu a {
+  display: block;
+  padding: 0.12rem;
+}
+#menu li {
+  margin: 0 50px; 
+}
+
+/*Menu headings in sidebar */
+#menubar .menu h2 {
+width: 100%;
+display: block;
+}
+
+/************* Responsive menu *************/
+  /*menu button*/
+  #btn-mobile {
+    display: none;
+    color: rgb(153, 140, 21);
+    font-weight: bold;
+  }
+  
+  @media (max-width: 600px) {
+    #menu {
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 70px;
+      right: 0px;
+      background: #f2f2f2;
+      opacity: 0.;
+      transition: 0.6s;
+      z-index: 1000;
+      height: 0px;
+      visibility: hidden;
+      overflow-y: hidden;
+    }
+    #nav.active #menu {
+      height: calc(100vh - 70px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+    #menu a {
+      padding: 1rem 0;
+      margin: 0 1rem;
+      border-bottom: 3px solid rgba(156, 133, 29, 0.05);
+    }
+    
+    #btn-mobile {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: 0.5rem;
+    }
+    #hamburger {
+      border-top: 2px solid;
+      width: 20px;
+      color: rgb(153, 140, 21);
+    }
+    #hamburger::after,
+    #hamburger::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      margin-top: 5px;
+      transition: 0.3s;
+      position: relative;
+    }
+    #nav.active #hamburger {
+      border-top-color: transparent;
+    }
+    #nav.active #hamburger::before {
+      transform: rotate(135deg);
+    }
+    #nav.active #hamburger::after {
+      transform: rotate(-135deg);
+      top: -7px;
+    }
+  }
+/* Página inicial*/
+
+/* imagem da Página inicial*/
+.container5 {
+      margin-top: -60px;
+      display: flex;
+      justify-content: center;  /* centraliza horizontalmente */
+      align-items: center;      /* centraliza verticalmente */
+      
+}
+
+/*Configuração do Cadastro de usuários*/
+
+.container {
+  max-width: 30%;
+  margin: 50px auto;
+  padding: 20px;
+  background-color:#799b84;
+  border-radius: 30px;
+  box-shadow: 0 0 10000px rgba(0, 0, 0, 0.1);
+}
+
+.container h3 {
+    text-align: center;
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    font-size: 0.875em;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #09a18d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* configurações da página acesso*/
+.menu-info ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.menu-info li {
+  margin: 70px 0;
+}
+
+.menu-info a {
+  text-decoration: none;
+  color: #cac830;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: 2px solid #c29c22;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.menu-info a:hover {
+  background-color: #8d6e07;
+  color: white;
+}
+
+
+/* Estilo do modal do cadasrto e login */
+.modal-overlay {
+  display: none;   /* <- ESSENCIAL */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  width: 300px;
+}
+
+.modal-box .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/*Gerenciador de estoque*/
+
+.container3 {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #d5e9f0;
+  border-radius: 8px;
+  box-shadow: 0 0 1000px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  padding: 8px;
+  width: 250px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #134613;
+}
+
+th {
+  background-color: #77bee7;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.in-stock {
+  color: green;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: red;
+  font-weight: bold;
+}
+
+
+/*Configurações do footer*/
+
+footer {
+  text-align: center;
+  display: block; 
+   
+}
+
+h3{
+  color: #888;
+}
+
+.grupo1 {
+  display: inline-block; /* Permite que o conteúdo seja centralizado e alinhado lado a lado */
+  text-align: center; /* Centraliza o conteúdo dentro da div .grupo1 */
+}
+
+.grupo1 img {
+  margin: 0 10px; /* Adiciona uma margem de 10px à esquerda e à direita de cada imagem */
+  vertical-align: middle; /* Alinha verticalmente as imagens ao meio */
+}
+
+
+/************ Midia query************/
+
+/* Estilos para telas pequenas */
+@media only screen and (max-width: 600px) {
+  /* Seus estilos aqui */
+}
+
+/* Estilos para telas médias */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* Seus estilos aqui */
+}
+
+/* Estilos para telas grandes */
+@media only screen and (min-width: 1025px) {
+  /* Seus estilos aqui */
+}
+
+/* Estilos gerais da página devoluções */
+.titulo-devolucoes {
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#filtro {
+  margin: 0 auto 20px auto;
+  padding: 8px 12px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  user-select: none;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 4px 0;
+}
+
+/* Botões dentro dos cards */
+.botoes-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.botoes-container button {
+  flex: 1;                /* todos os botões com o mesmo tamanho */
+  padding: 2px;
+  font-size: 0.85em;
+  font-weight: 50;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #fff;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Botão "Aceitar Devolução" */
+.btn-aceitar {
+  background-color: #f1c40f;
+  color: #fff;
+  font-weight: 600;
+}
+.btn-aceitar:hover:not(:disabled) {
+  background-color: #d4ac0d;
+  transform: scale(1.03);
+}
+
+
+/* Estilos individuais */
+.btn-verImagens {
+  background-color: #3498db;
+}
+.btn-verImagens:hover {
+  background-color: #2980b9;
+  transform: scale(1.03);
+}
+
+.btn-moverEstoque {
+  background-color: #2ecc71;
+}
+.btn-moverEstoque:hover {
+  background-color: #27ae60;
+  transform: scale(1.03);
+}
+
+.btn-moverDescarte {
+  background-color: #e74c3c;
+}
+.btn-moverDescarte:hover {
+  background-color: #c0392b;
+  transform: scale(1.03);
+}
+
+
+/* =========================== */
+/* Estilos da modal e carrossel */
+/* =========================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: flex;
+}
+
+.modalContent {
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+.modal-content {
+  position: relative;
+  margin: 0 auto;
+  background: white;
+  padding: 20px 30px;
+  max-width: 600px;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 8px;
+  user-select: none;
+  transition: opacity 0.3s ease;
+  object-fit: contain;
+}
+
+/* Indicador tipo "1 / 5" */
+#carousel-indicador {
+  margin: 0.5rem 0 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
+
+/* Botões do carrossel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  font-size: 2rem;
+  padding: 0 0.7rem;
+  cursor: pointer;
+  border-radius: 6px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  color: #333;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus {
+  background-color: rgba(255, 255, 255, 1);
+  outline: none;
+  color: #000;
+}
+
+/* Botões de navegação */
+#prev-btn,
+#next-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+#prev-btn:hover,
+#next-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Botão fechar modal */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #333;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+  z-index: 10000;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  outline: none;
+}
+
+/* ======================= */
+/* Rodapé e botão sair */
+/* ======================= */
+
+.linha-gradiente {
+  background-image: linear-gradient(to right, rgb(50, 188, 175), rgb(203, 203, 207));
+  height: 2px;
+  border: none;
+  margin: 10px 0;
+}
+
+.btn-sair {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: rgb(153, 140, 21);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* ======================= */
+/* Ajustes de responsividade */
+/* ======================= */
+
+@media (max-width: 650px) {
+  .modal-content {
+    max-width: 90vw;
+    padding: 15px 20px;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .close {
+    font-size: 24px;
+    top: 10px;
+    right: 15px;
+  }
+
+  .card img {
+    height: 220px;
+  }
+}
+
+
+
+/* Página de Reclamações */
+
+.container6 {
+  background-color: #e6f3f9;
+  color: #000;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.container6 h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+canvas {
+  height: 400px !important;
+  max-height: 500px;
+  width: 100%;
+  display: block;
+}
+
+/* Garantindo a altura fixa do gráfico */
+#reclamacoesChart {
+  width: 100%;  /* O gráfico ocupa 100% da largura do contêiner */
+  height: 400px; /* Definindo altura fixa para o gráfico */
+  display: block;  /* Garante que o gráfico seja tratado como bloco */
+  margin: 0 auto;  /* Centraliza o gráfico */
+  border-radius: 10px; /* Adiciona um arredondamento nas bordas do gráfico */
+}
+
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+  #reclamacoesChart {
+    height: 300px;  /* Altura menor em telas pequenas */
+  }
+}
+/*Página de descarte*/
+#descarte {
+  color: white;
+}
+
+
+
+/* Página de Registro de Reclamações */
+.container7 {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/* ================================
+   FORMULÁRIO
+===================================*/
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input, textarea, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#statusResult {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #eaeaea;
+    border-radius: 5px;
+}
+
+/* ================================
+   LAYOUT LADO A LADO
+===================================*/
+.return-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+#returnForm,
+.my-returns-section {
+    flex: 1 1 45%;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#returnForm {
+    background-color: #f9f9f9;
+}
+
+.my-returns-section {
+    background-color: #f1f1f1;
+}
+
+/* ================================
+   STATUS DAS DEVOLUÇÕES
+===================================*/
+.status-vermelho {
+    color: orange;
+    font-weight: bold;
+}
+
+.status-aprovado {
+    color: green;
+    font-weight: bold;
+}
+
+.status-normal {
+    color: black;
+}
+
+/* ================================
+   RESPONSIVIDADE
+===================================*/
+@media (max-width: 700px) {
+    #returnForm,
+    .my-returns-section {
+        flex: 1 1 100%;
+    }
+}
+
+/* ================================
+   CARDS
+===================================*/
+.return-item,
+.card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Primeira imagem do card */
+.return-item img:first-of-type,
+.card img:first-of-type {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.return-item img:first-of-type:hover,
+.card img:first-of-type:hover {
+    transform: scale(1.05);
+}
+
+/* Outras imagens */
+.return-item img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Mostrar mais imagens */
+.more-images {
+    display: none;
+    margin-top: 10px;
+}
+
+.view-more-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.view-more-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ============================
+   MODAL DE DEVOLUÇÃO
+=============================== */
+
+.modal-return {
+    display: none;                /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);   /* Fundo escuro */
+    z-index: 9999;                /* Sempre acima de tudo */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Conteúdo interno */
+.modal-return-content {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Imagem dentro do modal */
+#modalReturnImages img {
+    max-width: 100%;
+    max-height: 65vh;
+    border-radius: 8px;
+}
+
+/* Botão fechar */
+.modal-return-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4444;
+    border: none;
+    color: white;
+    font-size: 22px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* Botões de navegação */
+.modal-return-nav {
+    background: #007bff;
+    border: none;
+    color: white;
+    font-size: 28px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.modal-return-prev {
+    position: absolute;
+    left: 10px;
+}
+
+.modal-return-next {
+    position: absolute;
+    right: 10px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .modal-return-content {
+        width: 95%;
+    }
+
+    .modal-return-nav {
+        font-size: 24px;
+        width: 38px;
+        height: 38px;
+    }
+}
+#modalloginc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9999;
+}
+
+/* Quando abrir */
+#modalloginc.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Conteúdo */
+#modallogincContent {
+  background: #fff;
+  padding: 25px 35px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+/* Animação ao abrir */
+#modalloginc.open #modallogincContent {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Botão */
+#modallogincContent button {
+  margin-top: 15px;
+  background: #2b71ff;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+#modallogincContent button:hover {
+  background: #1d54c9;
+}
+
+.return-item {
+  display: block !important;
+}
+
+.thumb-wrap {
+  display: block;
+  margin-top: 12px;
+}
+
+.thumb-img {
+  display: block;
+  width: 100%;
+  position: relative !important;
+  top: auto !important;
+  margin-top: 12px;
+}

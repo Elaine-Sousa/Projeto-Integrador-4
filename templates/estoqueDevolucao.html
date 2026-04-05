@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estoque de Devoluções</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body>
+
+<header>
+    <div id="header">
+      <img src="{{ url_for('static', filename='imagens/logoPI.png') }}" alt="Logo" class="logo">
+      <nav id="nav">
+        <button aria-label="Abrir Menu" id="btn-mobile" aria-controls="menu">Menu</button>
+
+        <ul id="menu">
+          <li><a href="{{ url_for('acesso') }}">Home</a></li>
+          <li><a href="{{ url_for('estoque_fisico') }}">Estoque Físico</a></li>
+          <li><a href="{{ url_for('reclamacoes') }}">Reclamações</a></li>
+          <li><a href="{{ url_for('descarte') }}">Descartes</a></li>
+          <a href="{{ url_for('home') }}" style="color: rgb(153, 140, 21);">Sair</a>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+<main>
+    <h1 class="titulo-devolucoes">Demonstrativo de Devoluções</h1>
+
+    <input id="filtro" type="text" placeholder="Filtrar devoluções pelo nome..." />
+
+    <div class="container-cards grid" id="cards-container">
+
+      {% if devolucoes %}
+        {% for item in devolucoes %}
+          <div class="card" data-nome="{{ item.nome|lower }}" data-id="{{ item.id }}">
+            
+            <h3>{{ item.nome }}</h3>
+
+            {% set imagem_limpa = item.imagem.replace('imagens/', '') if item.imagem else 'logoPI.png' %}
+            <img src="{{ url_for('static', filename='imagens/' + imagem_limpa) }}" alt="{{ item.nome }}">
+
+            <p><strong>Nº Pedido:</strong> {{ item.id }}</p>
+            <p><strong>Motivo:</strong> {{ item.motivo }}</p>
+            <p><strong>Quantidade:</strong> {{ item.quantidade }}</p>
+            <p><strong>Preço:</strong> R$ {{ '%.2f'|format(item.preco or 100) }}</p>
+
+            <div class="botoes-container">
+
+              <button class="btn-verImagens" onclick="verImagens({{ item.id }})">
+                Ver Imagens
+              </button>
+
+              <button class="btn-aceitar" id="btn-aceitar-{{ item.id }}" onclick="aceitarDevolucao({{ item.id }})">
+                Aceitar Devolução
+              </button>
+
+              <button class="btn-moverEstoque" id="btn-moverEstoque-{{ item.id }}" onclick="moverParaEstoqueFisico({{ item.id }})" disabled>
+                Mover p/ Estoque
+              </button>
+
+              <button class="btn-moverDescarte" id="btn-moverDescarte-{{ item.id }}" onclick="moverParaDescarte({{ item.id }})" disabled>
+                Mover p/ Descarte
+              </button>
+
+            </div>
+
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>Nenhuma devolução cadastrada.</p>
+      {% endif %}
+
+    </div>
+</main>
+
+<!-- ===================== MODAL ===================== -->
+
+<div id="modal-carrossel" class="modal" style="display:none;">
+    <div class="modal-content">
+
+        <button id="close-modal" class="close">&times;</button>
+
+        <img id="carousel-image" src="" alt="Imagem da devolução">
+
+        <div id="carousel-indicador"></div>
+
+        <div class="carousel-buttons">
+            <button id="prev-btn">&#10094;</button>
+            <button id="next-btn">&#10095;</button>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+  <div class="grupo1">
+    <h3>Selo de Segurança</h3>
+    <img src="{{ url_for('static', filename='imagens/Frame 128.png') }}">
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/devolucao.js') }}"></script>
+
+</body>
+</html>
